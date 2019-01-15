@@ -1,0 +1,44 @@
+2019-01-10 16:42:29,365 INFO: Protocol data qry server startup [in C:\Users\holger\Documents\git\proto_qry\app\__init__.py:48]
+2019-01-10 16:43:42,190 INFO: Protocol data qry server startup [in C:\Users\holger\Documents\git\proto_qry\app\__init__.py:48]
+2019-01-10 16:45:09,050 INFO: Protocol data qry server startup [in C:\Users\holger\Documents\git\proto_qry\app\__init__.py:48]
+2019-01-10 16:46:52,931 INFO: Protocol data qry server startup [in C:\Users\holger\Documents\git\proto_qry\app\__init__.py:48]
+2019-01-10 16:48:07,109 INFO: Protocol data qry server startup [in C:\Users\holger\Documents\git\proto_qry\app\__init__.py:48]
+2019-01-10 16:48:40,462 INFO: Protocol data qry server startup [in C:\Users\holger\Documents\git\proto_qry\app\__init__.py:48]
+2019-01-10 16:49:02,614 INFO: Protocol data qry server startup [in C:\Users\holger\Documents\git\proto_qry\app\__init__.py:48]
+2019-01-10 16:52:45,648 INFO: Protocol data qry server startup [in C:\Users\holger\Documents\git\proto_qry\app\__init__.py:48]
+2019-01-10 16:52:48,769 ERROR: Exception on / [GET] [in c:\users\holger\documents\git\proto_qry\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\holger\documents\git\proto_qry\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\holger\documents\git\proto_qry\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\holger\documents\git\proto_qry\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\holger\documents\git\proto_qry\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\holger\documents\git\proto_qry\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\holger\documents\git\proto_qry\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\holger\Documents\git\proto_qry\app\main\routes.py", line 18, in index
+    files=data_list, title='Home')
+  File "c:\users\holger\documents\git\proto_qry\venv\lib\site-packages\flask\templating.py", line 135, in render_template
+    context, ctx.app)
+  File "c:\users\holger\documents\git\proto_qry\venv\lib\site-packages\flask\templating.py", line 117, in _render
+    rv = template.render(context)
+  File "c:\users\holger\documents\git\proto_qry\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "c:\users\holger\documents\git\proto_qry\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\holger\documents\git\proto_qry\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\holger\Documents\git\proto_qry\app\templates\index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\holger\Documents\git\proto_qry\app\templates\base.html", line 14, in top-level template code
+    {% block app_content %}{% endblock %}
+  File "C:\Users\holger\Documents\git\proto_qry\app\templates\index.html", line 17, in block "app_content"
+    {% for key, value in sorted(file.items(), key=operator.itemgetter(1)) %}
+  File "c:\users\holger\documents\git\proto_qry\venv\lib\site-packages\jinja2\environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'operator' is undefined
+2019-01-10 16:53:27,223 INFO: Protocol data qry server startup [in C:\Users\holger\Documents\git\proto_qry\app\__init__.py:48]

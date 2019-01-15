@@ -1,0 +1,51 @@
+2019-01-09 15:07:31,142 INFO: Protocol data qry server startup [in C:\Users\holger\Documents\git\gitlab_internal\proto_qry\app\__init__.py:48]
+2019-01-09 15:48:16,839 INFO: Protocol data qry server startup [in C:\Users\holger\Documents\git\gitlab_internal\proto_qry\app\__init__.py:48]
+2019-01-09 15:55:51,912 INFO: Protocol data qry server startup [in C:\Users\holger\Documents\git\gitlab_internal\proto_qry\app\__init__.py:48]
+2019-01-09 16:17:01,242 INFO: Protocol data qry server startup [in C:\Users\holger\Documents\git\gitlab_internal\proto_qry\app\__init__.py:48]
+2019-01-09 16:17:15,687 ERROR: Exception on /search [GET] [in c:\users\holger\documents\git\gitlab_internal\proto_qry\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\holger\documents\git\gitlab_internal\proto_qry\venv\lib\site-packages\sqlalchemy\util\_collections.py", line 999, in __call__
+    return self.registry[key]
+KeyError: 2124
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\holger\documents\git\gitlab_internal\proto_qry\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\holger\documents\git\gitlab_internal\proto_qry\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\holger\documents\git\gitlab_internal\proto_qry\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\holger\documents\git\gitlab_internal\proto_qry\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\holger\documents\git\gitlab_internal\proto_qry\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\holger\documents\git\gitlab_internal\proto_qry\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\holger\Documents\git\gitlab_internal\proto_qry\app\main\routes.py", line 22, in search
+    res = Odmfile.query.filter_by(realname=file).first()
+  File "c:\users\holger\documents\git\gitlab_internal\proto_qry\venv\lib\site-packages\flask_sqlalchemy\__init__.py", line 514, in __get__
+    return type.query_class(mapper, session=self.sa.session())
+  File "c:\users\holger\documents\git\gitlab_internal\proto_qry\venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 74, in __call__
+    return self.registry()
+  File "c:\users\holger\documents\git\gitlab_internal\proto_qry\venv\lib\site-packages\sqlalchemy\util\_collections.py", line 1001, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "c:\users\holger\documents\git\gitlab_internal\proto_qry\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3010, in __call__
+    return self.class_(**local_kw)
+  File "c:\users\holger\documents\git\gitlab_internal\proto_qry\venv\lib\site-packages\flask_sqlalchemy\__init__.py", line 143, in __init__
+    bind = options.pop('bind', None) or db.engine
+  File "c:\users\holger\documents\git\gitlab_internal\proto_qry\venv\lib\site-packages\flask_sqlalchemy\__init__.py", line 877, in engine
+    return self.get_engine()
+  File "c:\users\holger\documents\git\gitlab_internal\proto_qry\venv\lib\site-packages\flask_sqlalchemy\__init__.py", line 896, in get_engine
+    return connector.get_engine()
+  File "c:\users\holger\documents\git\gitlab_internal\proto_qry\venv\lib\site-packages\flask_sqlalchemy\__init__.py", line 559, in get_engine
+    self._engine = rv = sqlalchemy.create_engine(info, **options)
+  File "c:\users\holger\documents\git\gitlab_internal\proto_qry\venv\lib\site-packages\sqlalchemy\engine\__init__.py", line 425, in create_engine
+    return strategy.create(*args, **kwargs)
+  File "c:\users\holger\documents\git\gitlab_internal\proto_qry\venv\lib\site-packages\sqlalchemy\engine\strategies.py", line 81, in create
+    dbapi = dialect_cls.dbapi(**dbapi_args)
+  File "c:\users\holger\documents\git\gitlab_internal\proto_qry\venv\lib\site-packages\sqlalchemy\dialects\mysql\pymysql.py", line 62, in dbapi
+    return __import__('pymysql')
+ImportError: No module named 'pymysql'
+2019-01-09 16:17:33,284 INFO: Protocol data qry server startup [in C:\Users\holger\Documents\git\gitlab_internal\proto_qry\app\__init__.py:48]
