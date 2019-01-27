@@ -1,0 +1,117 @@
+2019-01-26 23:52:12,481 ERROR: Exception on /admin/instruments [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/holger/git/md_length/app/admin/routes.py", line 112, in get_instrument_list
+    resp = update_instrument_list(auth)
+  File "/home/holger/git/md_length/app/admin/routes.py", line 102, in update_instrument_list
+    return ext_modules.api_get_instruments(auth_credentials=payload)
+  File "/home/holger/git/md_length/app/ext_modules.py", line 25, in api_get_instruments
+    session_api = api_auth(auth_credentials)
+  File "/home/holger/git/md_length/app/ext_modules.py", line 9, in api_auth
+    auth_credentials['password'])
+KeyError: 'password'
+2019-01-26 23:52:54,513 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 23:53:19,708 ERROR: Exception on /admin/instruments [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/holger/git/md_length/app/admin/routes.py", line 111, in get_instrument_list
+    resp = update_instrument_list(auth)
+  File "/home/holger/git/md_length/app/admin/routes.py", line 101, in update_instrument_list
+    return ext_modules.api_get_instruments(auth_credentials=auth)
+  File "/home/holger/git/md_length/app/ext_modules.py", line 29, in api_get_instruments
+    '/customer/{}/instruments'.format(company_id))
+  File "/home/holger/git/md_length/app/ext_modules.py", line 15, in api_query
+    session_api.get(api_url + endpoint +"{0}&page={1}".format(filter,i))
+AttributeError: 'NoneType' object has no attribute 'get'
+2019-01-26 23:55:24,093 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 23:55:37,199 ERROR: Exception on /admin/instruments [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/holger/git/md_length/app/admin/routes.py", line 111, in get_instrument_list
+    resp = update_instrument_list(auth)
+  File "/home/holger/git/md_length/app/admin/routes.py", line 101, in update_instrument_list
+    return ext_modules.api_get_instruments(auth_credentials=auth)
+  File "/home/holger/git/md_length/app/ext_modules.py", line 30, in api_get_instruments
+    '/customer/{}/instruments'.format(company_id))
+  File "/home/holger/git/md_length/app/ext_modules.py", line 15, in api_query
+    session.get(api_url + endpoint +"{0}&page={1}".format(filter,i))
+NameError: name 'i' is not defined
+2019-01-26 23:57:41,504 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-27 00:02:17,056 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-27 00:02:41,307 ERROR: Exception on /admin/instruments [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/holger/git/md_length/app/admin/routes.py", line 111, in get_instrument_list
+    resp = update_instrument_list(auth)
+  File "/home/holger/git/md_length/app/admin/routes.py", line 101, in update_instrument_list
+    return ext_modules.api_get_instruments(auth_credentials=auth)
+  File "/home/holger/git/md_length/app/ext_modules.py", line 42, in api_get_instruments
+    for i in range(2, math.ceil(pages)+1):
+NameError: name 'math' is not defined
+2019-01-27 00:03:32,434 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-27 00:03:47,874 ERROR: Exception on /admin/instruments [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/holger/git/md_length/app/admin/routes.py", line 111, in get_instrument_list
+    resp = update_instrument_list(auth)
+  File "/home/holger/git/md_length/app/admin/routes.py", line 101, in update_instrument_list
+    return ext_modules.api_get_instruments(auth_credentials=auth)
+  File "/home/holger/git/md_length/app/ext_modules.py", line 50, in api_get_instruments
+    instruments = json.loads(resp_next.read().decode('utf-8'))
+AttributeError: 'Response' object has no attribute 'read'
+2019-01-27 00:08:36,608 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]

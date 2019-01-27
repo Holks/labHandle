@@ -1,0 +1,100 @@
+{% extends "list_view.html" %}
+
+{% block app_head %}
+<!-- Bootstrap Core CSS -->
+<link rel="stylesheet" href="../static/css/bootstrap-tagsinput.css">
+{% endblock %}
+
+{% block listview_head %}
+<h1 class="page-header">{{ heading }}
+  <span>
+    <a data-toggle="collapse" href="#add_department" role="button" aria-expanded="false" aria-controls="add_department">
+      <i class="fas fa-plus-square fa-sm"></i>
+    </a>
+  </span>
+</h1>
+<form id="add_department" class="text-left collapse" method="POST">
+	<div class="login-form-main-message"></div>
+	<div class="main-login-form">
+		<div class="login-group">
+			<div class="form-group">
+				<input type="text" class="form-control" id="designation" name="designation" placeholder="Designation">
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-control" id="name" name="name" placeholder="Name">
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-control" id="location" name="location" placeholder="Location">
+			</div>
+      <div class="form-group">
+        <input type="text" value="Amsterdam,Washington" data-role="tagsinput" />
+			</div>
+		</div>
+		<button type="submit" class="btn btn-info"> Add department</button>
+	</div>
+</form>
+{% endblock %}
+{% block listview_scripts %}
+<!-- Input tags script -->
+<script src="../static/js/bootstrap-tagsinput.min.js"></script>
+<!-- Bootstrap tags script -->
+<script src="../static/js/typeahead.js"></script>
+
+<script>
+  $('input').tagsinput({
+    typeahead: {
+      source: function(query) {
+        return $.getJSON('admin/users?data_type=json');
+      }
+    }
+  });
+</script>
+<script>
+  (function($) {
+  "use strict";
+
+  // Options for Message
+  //----------------------------------------------
+  var options = {
+  'btn-loading': '<i class="fa fa-spinner fa-pulse"></i>',
+  'btn-success': '<i class="fa fa-check"></i>',
+  'btn-error': '<i class="fa fa-remove"></i>',
+  'msg-success': 'All Good! Redirecting...',
+  'msg-error': 'Some error message',
+  'useAJAX': true,
+  };
+
+  $("#add_department").validate({
+  rules: {
+    username: "required",
+    email: "required"
+  },
+  errorClass: "form-invalid",
+  errorPlacement: function( label, element ) {
+    if( element.attr( "type" ) === "checkbox" || element.attr( "type" ) === "radio" ) {
+      element.parent().append( label ); // this would append the label after all your checkboxes/labels (so the error-label will be the last element in <div class="controls"> )
+    }
+    else {
+      label.insertAfter( element ); // standard behaviour
+    }
+  }
+  });
+  $("#add_department").submit(function() {
+    remove_loading($(this));
+
+    if(options['useAJAX'] == true)
+    {
+      // Dummy AJAX request (Replace this with your AJAX code)
+      // If you don't want to use AJAX, remove this
+      var formData = new FormData(document.getElementById('add_department'));
+      submit_form($(this), '{{ url_for('admin.add_user') }}', formData, options);
+
+      // Cancel the normal submission.
+      // If you don't want to use AJAX, remove this
+      return false;
+    }
+  });
+
+  })(jQuery);
+</script>
+{% endblock %}

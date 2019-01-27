@@ -1,0 +1,120 @@
+2019-01-26 21:21:59,322 ERROR: Exception on /admin/instruments [GET] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/holger/git/md_length/app/admin/routes.py", line 106, in get_instrument_list
+    data = Instrument.query.order_by(Instrument.id).all()
+NameError: name 'Instrument' is not defined
+2019-01-26 21:24:01,426 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 21:24:03,234 ERROR: Exception on /admin/instruments [GET] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/holger/git/md_length/app/admin/routes.py", line 108, in get_instrument_list
+    data=data, header=Instrument._default_fields, heading='Instruments')
+AttributeError: type object 'Instrument' has no attribute '_default_fields'
+2019-01-26 21:25:59,932 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 21:26:02,553 ERROR: Exception on /admin/instruments [GET] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/holger/git/md_length/app/admin/routes.py", line 108, in get_instrument_list
+    data=data, header=Instrument._default_fields, heading='Instruments')
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/templating.py", line 135, in render_template
+    context, ctx.app)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/templating.py", line 117, in _render
+    rv = template.render(context)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/home/holger/git/md_length/app/templates/admin/instruments.html", line 1, in top-level template code
+    {% extends "list_view.html" %}
+  File "/home/holger/git/md_length/app/templates/list_view.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/holger/git/md_length/app/templates/base.html", line 243, in top-level template code
+    {% block app_scripts %}{% endblock %}
+  File "/home/holger/git/md_length/app/templates/list_view.html", line 42, in block "app_scripts"
+    {% block listview_scripts %}{% endblock %}
+  File "/home/holger/git/md_length/app/templates/admin/instruments.html", line 72, in block "listview_scripts"
+    url: '{{ url_for('admin.update_instrument_list') }}',
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/helpers.py", line 356, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2061, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/helpers.py", line 345, in url_for
+    force_external=external)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/werkzeug/routing.py", line 1776, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'admin.update_instrument_list'. Did you mean 'admin.get_instrument_list' instead?
+2019-01-26 21:26:31,610 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 21:27:01,813 ERROR: Exception on /admin/instruments [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/holger/git/md_length/app/admin/routes.py", line 111, in get_instrument_list
+    update_instrument_list(auth)
+TypeError: 'staticmethod' object is not callable
+2019-01-26 21:30:06,540 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 21:30:12,755 ERROR: Exception on /admin/instruments [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/holger/git/md_length/app/admin/routes.py", line 111, in get_instrument_list
+    update_instrument_list.__get__(auth)
+TypeError: __get__(None, None) is invalid
+2019-01-26 21:31:07,759 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]

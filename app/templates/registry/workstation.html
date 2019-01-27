@@ -1,0 +1,123 @@
+{% extends "list_view.html" %}
+
+{% block app_head %}
+<!-- Bootstrap Core CSS -->
+<link rel="stylesheet" href="../static/css/bootstrap-tagsinput.css">
+{% endblock %}
+
+{% block listview_head %}
+<h1 class="page-header">{{ heading }}
+  <span>
+    <a data-toggle="collapse" href="#add_workstation" role="button" aria-expanded="false" aria-controls="add_workstation">
+      <i class="fas fa-plus-square fa-sm"></i>
+    </a>
+  </span>
+</h1>
+<form id="add_workstation" class="text-left collapse" enctype="multipart/form-data" method="POST">
+	<div class="login-form-main-message"></div>
+	<div class="main-login-form">
+		<div class="login-group">
+			<div class="form-group">
+				<input type="text" class="form-control" id="scope" name="scope" placeholder="Scope">
+			</div>
+      <div class="form-group">
+				<input type="text" class="form-control" id="designation" name="designation" placeholder="Designation">
+			</div>
+      <div class="form-group">
+				<input type="text" class="form-control" id="responsible_user_id" name="responsible_user_id" placeholder="Scope">
+			</div>
+      <div class="form-group">
+        <input type="text" id="instruments" name="instruments" value="" data-role="tagsinput" />
+			</div>
+		</div>
+    <input type="file" name="file">
+		<button type="submit" class="btn btn-default btn-file">Submit</button>
+	</div>
+</form>
+{% endblock %}
+
+{% block listview_scripts %}
+<!-- Input tags script -->
+<script src="../static/js/bootstrap-tagsinput.min.js"></script>
+<!-- Bootstrap tags script -->
+<script src="../static/js/typeahead.js"></script>
+
+<script>
+var users = new Bloodhound({
+  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('user'),
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  prefetch: {
+    url: '{{ url_for('admin.get_user_list') }}'+'?data_type=json',
+    filter: function(list) {
+      console.log(list);
+      return $.map(list, function(user) {
+        return { username: user }; });
+    }
+  }
+});
+users.initialize();
+console.log(users);
+$('#personnel').tagsinput({
+  typeaheadjs: {
+    user: 'user',
+    displayKey: 'username',
+    valueKey: 'username',
+    source: users.ttAdapter()
+  }
+});
+</script>
+
+<script>
+  (function($) {
+  "use strict";
+
+  // Options for Message
+  //----------------------------------------------
+  var options = {
+  'btn-loading': '<i class="fa fa-spinner fa-pulse"></i>',
+  'btn-success': '<i class="fa fa-check"></i>',
+  'btn-error': '<i class="fa fa-remove"></i>',
+  'msg-success': 'All Good! Redirecting...',
+  'msg-error': 'Some error message',
+  'useAJAX': true,
+  };
+  //---------------------------------------------
+
+
+  $("#add_workstation").validate({
+  rules: {
+    designation: "required",
+    scope: "required"
+  },
+  errorClass: "form-invalid",
+  errorPlacement: function( label, element ) {
+    if( element.attr( "type" ) === "checkbox" || element.attr( "type" ) === "radio" ) {
+      element.parent().append( label ); // this would append the label after all your checkboxes/labels (so the error-label will be the last element in <div class="controls"> )
+    }
+    else {
+      label.insertAfter( element ); // standard behaviour
+    }
+  }
+  });
+  $("#add_workstation").submit(function() {
+    remove_loading($(this), options);
+
+    if(options['useAJAX'] == true)
+    {
+      // Dummy AJAX request (Replace this with your AJAX code)
+      // If you don't want to use AJAX, remove this
+      var formData = new FormData(document.getElementById('add_workstation'));
+      var file = document.querySelector('[type=file]').files[0];
+      formData.append('file', file);
+
+      submit_form($(this), '{{ url_for('registry.workstation')}}', formData,options);
+
+      // Cancel the normal submission.
+      // If you don't want to use AJAX, remove this
+      return false;
+    }
+  });
+
+  })(jQuery);
+</script>
+{% endblock %}

@@ -1,0 +1,124 @@
+2019-01-26 12:24:44,376 ERROR: Exception on /document/ [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/holger/git/md_length/app/document/routes.py", line 50, in add_document
+    json_obj = dict(request.form.get('form_json'))
+ValueError: dictionary update sequence element #0 has length 1; 2 is required
+2019-01-26 12:25:23,886 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 12:25:43,429 ERROR: Exception on /admin/user [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/holger/git/md_length/app/admin/routes.py", line 39, in add_user
+    elif User.query.filter_by(username=json_obj['username']).first():
+TypeError: string indices must be integers
+2019-01-26 12:26:16,900 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 12:26:25,866 ERROR: Exception on /admin/user [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/holger/git/md_length/app/admin/routes.py", line 39, in add_user
+    elif User.query.filter_by(username=json_obj.username).first():
+AttributeError: 'str' object has no attribute 'username'
+2019-01-26 12:28:03,220 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 12:28:14,940 ERROR: Exception on /admin/user [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/holger/git/md_length/app/admin/routes.py", line 39, in add_user
+    elif User.query.filter_by(username=json_obj.username).first():
+AttributeError: 'str' object has no attribute 'username'
+2019-01-26 12:29:07,896 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 12:29:15,349 ERROR: Exception on /admin/user [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/holger/git/md_length/app/admin/routes.py", line 39, in add_user
+    elif User.query.filter_by(username=json_obj.username).first():
+AttributeError: 'dict' object has no attribute 'username'
+2019-01-26 12:30:07,161 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 12:32:11,713 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 12:32:19,303 ERROR: Exception on /admin/user [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/holger/git/md_length/app/admin/routes.py", line 52, in add_user
+    data=data, header=User._default_fields, heading='Add')
+NameError: name 'data' is not defined
+2019-01-26 12:33:35,673 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 12:37:20,354 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 12:38:54,741 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 12:41:32,824 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 12:43:30,456 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 12:44:13,285 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 12:46:14,163 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 12:48:10,700 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 12:48:51,740 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 12:49:41,672 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 12:55:59,865 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 12:57:03,463 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 13:00:17,517 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 13:01:34,044 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 13:04:56,385 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 13:11:11,203 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]

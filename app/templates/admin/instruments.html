@@ -1,0 +1,91 @@
+{% extends "list_view.html" %}
+
+{% block app_head %}
+<!-- Bootstrap Core CSS -->
+<link rel="stylesheet" href="../static/css/bootstrap-tagsinput.css">
+{% endblock %}
+
+{% block listview_head %}
+<h1 class="page-header">{{ heading }}
+  <span>
+    <a data-toggle="collapse" href="#update_instrument" role="button" aria-expanded="false" aria-controls="update_instrument">
+      <i class="fas fa-sync fa-sm"></i>
+    </a>
+  </span>
+</h1>
+<form id="update_instrument" class="text-left collapse" method="POST">
+	<div class="login-form-main-message"></div>
+	<div class="main-login-form">
+		<div class="login-group">
+			<div class="form-group">
+				<input type="text" class="form-control" id="username" name="username" placeholder="username">
+			</div>
+			<div class="form-group">
+				<input type="password" class="form-control" id="password" name="password" placeholder="password">
+			</div>
+		</div>
+		<button type="submit" class="btn btn-info"> Update</button>
+	</div>
+</form>
+{% endblock %}
+
+{% block listview_scripts %}
+<script>
+  (function($) {
+  "use strict";
+
+  // Options for Message
+  //----------------------------------------------
+  var options = {
+  'btn-loading': '<i class="fa fa-spinner fa-pulse"></i>',
+  'btn-success': '<i class="fa fa-check"></i>',
+  'btn-error': '<i class="fa fa-remove"></i>',
+  'msg-success': 'All Good! Redirecting...',
+  'msg-error': 'Some error message',
+  'useAJAX': true,
+  };
+  //---------------------------------------------
+
+
+  $("#add_workstation").validate({
+  rules: {
+    username: "required",
+    password: "required"
+  },
+  errorClass: "form-invalid",
+  errorPlacement: function( label, element ) {
+    if( element.attr( "type" ) === "checkbox" || element.attr( "type" ) === "radio" ) {
+      element.parent().append( label ); // this would append the label after all your checkboxes/labels (so the error-label will be the last element in <div class="controls"> )
+    }
+    else {
+      label.insertAfter( element ); // standard behaviour
+    }
+  }
+  });
+  $("#update_instrument").submit(function() {
+    if(options['useAJAX'] == true)
+    {
+      var formData = new FormData(document.getElementById('update_instrument'));
+      var json_obj = formToJSON( formData );
+      console.log( json_obj );
+      $.ajax({
+        type: "POST",
+        url: '{{ url_for('admin.get_instrument_list') }}',
+        data: json_obj,
+        contentType: 'application/json',
+        success: function( data, textStatus, jQxhr ){
+            console.log( data );
+        },
+        error: function( jqXhr, textStatus, errorThrown ){
+            console.log( errorThrown );
+        }
+      });
+      $("#username").val(""); // delete
+      $("#password").val(""); // delete
+      $("#update_instrument").removeClass("in"); // hide
+      return false;
+    }
+  });
+  })(jQuery);
+</script>
+{% endblock %}

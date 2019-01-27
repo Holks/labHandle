@@ -1,0 +1,9 @@
+Dear {{ user.username }},
+
+    Account created
+    
+    password = {{ user.password_hash }}
+
+    
+Sincerely,
+The Team

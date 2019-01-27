@@ -1,0 +1,107 @@
+2019-01-26 21:31:23,103 ERROR: Exception on /admin/instruments [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/holger/git/md_length/app/admin/routes.py", line 112, in get_instrument_list
+    update_instrument_list.__get__(auth)
+TypeError: __get__(None, None) is invalid
+2019-01-26 21:33:42,150 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 21:34:06,652 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 21:34:15,064 ERROR: Exception on /admin/instruments [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1816, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1831, in finalize_request
+    response = self.make_response(rv)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1957, in make_response
+    'The view function did not return a valid response. The'
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+2019-01-26 21:35:18,161 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 21:35:49,335 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 21:36:59,416 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 21:37:20,198 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 21:38:30,959 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 21:45:19,727 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 21:45:46,926 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 21:47:35,696 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 21:48:00,003 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 21:48:31,694 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 23:41:14,252 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 23:41:38,666 ERROR: Exception on /admin/instruments [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/holger/git/md_length/app/admin/routes.py", line 113, in get_instrument_list
+    resp = update_instrument_list(auth)
+  File "/home/holger/git/md_length/app/admin/routes.py", line 102, in update_instrument_list
+    payload = {'username':auth.username,'pass':auth.password}
+AttributeError: 'dict' object has no attribute 'username'
+2019-01-26 23:42:31,317 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 23:42:48,674 ERROR: Exception on /admin/instruments [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/holger/git/md_length/app/admin/routes.py", line 113, in get_instrument_list
+    resp = update_instrument_list(auth)
+  File "/home/holger/git/md_length/app/admin/routes.py", line 103, in update_instrument_list
+    return api_get_instruments(auth_credentials=payload)
+NameError: name 'api_get_instruments' is not defined
+2019-01-26 23:43:14,783 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 23:43:26,836 ERROR: Exception on /admin/instruments [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/holger/git/md_length/app/admin/routes.py", line 113, in get_instrument_list
+    resp = update_instrument_list(auth)
+  File "/home/holger/git/md_length/app/admin/routes.py", line 103, in update_instrument_list
+    return ext_modules.api_get_instruments(auth_credentials=payload)
+  File "/home/holger/git/md_length/app/ext_modules.py", line 20, in api_get_instruments
+    if not session_api:
+UnboundLocalError: local variable 'session_api' referenced before assignment
+2019-01-26 23:44:32,413 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 23:47:16,062 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 23:49:51,272 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 23:50:45,517 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 23:51:55,211 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]

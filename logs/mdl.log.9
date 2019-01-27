@@ -1,0 +1,112 @@
+2019-01-26 11:11:03,302 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 11:13:55,026 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 11:14:24,300 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 11:14:57,605 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 11:15:11,719 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 11:17:22,485 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 11:19:44,697 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 12:18:29,650 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 12:18:39,988 ERROR: Exception on /document/ [GET] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/holger/git/md_length/app/document/routes.py", line 40, in document
+    data = User.query.order_by(Document.id).all()
+NameError: name 'User' is not defined
+2019-01-26 12:19:30,042 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 12:19:32,256 ERROR: Exception on /document/ [GET] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/holger/git/md_length/app/document/routes.py", line 46, in document
+    data=data, header=Document._default_fields, heading='Add')
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/templating.py", line 134, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/templating.py", line 58, in get_source
+    return self._get_source_fast(environment, template)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/templating.py", line 86, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: Document/view.html
+2019-01-26 12:20:25,171 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 12:21:06,169 ERROR: Exception on /document/ [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/holger/git/md_length/app/document/routes.py", line 54, in add_document
+    elif Document.query.filter_by(designation=json_obj['designation'], \
+TypeError: string indices must be integers
+2019-01-26 12:22:37,289 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 12:22:44,799 ERROR: Exception on /document/ [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/holger/git/md_length/app/document/routes.py", line 56, in add_document
+    .filter_by(Document.designation==json_obj['designation'], \
+TypeError: string indices must be integers
+2019-01-26 12:23:24,432 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-01-26 12:23:36,885 ERROR: Exception on /document/ [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/holger/git/md_length/app/document/routes.py", line 56, in add_document
+    .filter_by(Document.designation==json_obj.designation, \
+AttributeError: 'str' object has no attribute 'designation'
+2019-01-26 12:24:29,961 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]

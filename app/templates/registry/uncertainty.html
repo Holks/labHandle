@@ -1,0 +1,76 @@
+{% extends "list_view.html" %}
+{% block app_head %}
+{% endblock %}
+
+{% block listview_head %}
+<h1 class="page-header">{{ heading }}
+  <span>
+    <a data-toggle="collapse" href="#add_unertainty_calculation" role="button" aria-expanded="false" aria-controls="add_unertainty_calculation">
+      <i class="fas fa-plus-square fa-sm"></i>
+    </a>
+  </span>
+</h1>
+<form id="add_unertainty_calculation" class="text-left collapse" method="POST">
+	<div class="login-form-main-message"></div>
+	<div class="main-login-form">
+		<div class="login-group">
+			<div class="form-group">
+				<input type="text" class="form-control" id="designation" name="designation" placeholder="Designation">
+			</div>
+			<div class="form-group">
+				<input type="txt" class="form-control" id="description" name="description" placeholder="Description">
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-control" id="version" name="version" placeholder="Version">
+			</div>
+		</div>
+    <input type="file" name="file">
+		<button type="submit" class="btn btn-default btn-file">Submit</button>
+	</div>
+</form>
+{% endblock %}
+{% block listview_scripts %}
+<!-- Input tags script -->
+<script src="../static/js/bootstrap-tagsinput.min.js"></script>
+<!-- Bootstrap tags script -->
+<script src="../static/js/typeahead.js"></script>
+<script>
+  (function($) {
+  "use strict";
+
+  $("#add_unertainty_calculation").validate({
+  rules: {
+    designation: "required",
+    version: "required",
+    description: "required",
+    file: "required"
+  },
+  errorClass: "form-invalid",
+  errorPlacement: function( label, element ) {
+    if( element.attr( "type" ) === "checkbox" || element.attr( "type" ) === "radio" ) {
+      element.parent().append( label ); // this would append the label after all your checkboxes/labels (so the error-label will be the last element in <div class="controls"> )
+    }
+    else {
+      label.insertAfter( element ); // standard behaviour
+    }
+  }
+  });
+  $("#add_unertainty_calculation").submit(function() {
+    remove_loading($(this), options);
+
+    if(options['useAJAX'] == true)
+    {
+      // Dummy AJAX request (Replace this with your AJAX code)
+      // If you don't want to use AJAX, remove this
+      var formData = new FormData(document.getElementById('add_unertainty_calculation'));
+      submit_form($(this), '{{ url_for('document.add_document')}}', formData);
+
+      // Cancel the normal submission.
+      // If you don't want to use AJAX, remove this
+      return false;
+    }
+  });
+
+  })(jQuery);
+</script>
+{% endblock %}

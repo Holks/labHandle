@@ -1,0 +1,37 @@
+{% extends "index.html" %}
+
+{% block app_content %}
+<div class="container">
+    <h2>Departments</h2>
+    <ul class="pagination">
+        <table id="dep_table" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <td>Pos</td>
+                    <td>Designation</td>
+                    <td>Version</td>
+                    <td>Department</td>
+                    <td>Instrument</td>
+                    <td>Subfield</td>
+                    <td>Related calibration guide</td>
+                    <td>Status</td>
+                    <td>Link</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td style ="word-break:break-all;">MSKJ 090-indikaatorid-VPM-2019010901</td>
+                    <td>2019010901</td>
+                    <td>Lengtd</td>
+                    <td>Indicators</td>
+                    <td>VPM</td>
+                    <td>MSKJ 090</td>
+                    <td>Active</td>
+                    <td> <a href="#">File</a> </td>
+                </tr>
+            </tbody>
+        </table>        
+    </ul>
+</div>
+{% endblock %}

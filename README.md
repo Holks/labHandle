@@ -31,3 +31,11 @@ This image exposes the standard MySQL port (3306), so container linking makes th
 $ docker run --name proto_qry --link mysql/mysql-server:8.0 -d proto_qry
 
 $ docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=<password> -d mysql/mysql-server:8.0
+
+Set up MYSQL:
+* CREATE DATABASE md_length;
+* Create new user to Database:
+-- CREATE USER 'length'@'localhost' IDENTIFIED BY 'password';
+-- GRANT ALL PRIVILEGES ON md_length.* TO 'length'@'localhost';
+-- FLUSH PRIVILEGES;
+-- SHOW GRANTS FOR 'length'@'localhost';
