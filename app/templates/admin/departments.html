@@ -1,8 +1,7 @@
 {% extends "list_view.html" %}
 
 {% block app_head %}
-<!-- Bootstrap Core CSS -->
-<link rel="stylesheet" href="../static/css/bootstrap-tagsinput.css">
+
 {% endblock %}
 
 {% block listview_head %}
@@ -14,40 +13,53 @@
   </span>
 </h1>
 <form id="add_department" class="text-left collapse" method="POST">
-	<div class="login-form-main-message"></div>
-	<div class="main-login-form">
-		<div class="login-group">
-			<div class="form-group">
-				<input type="text" class="form-control" id="designation" name="designation" placeholder="Designation">
-			</div>
-			<div class="form-group">
-				<input type="text" class="form-control" id="name" name="name" placeholder="Name">
-			</div>
-			<div class="form-group">
-				<input type="text" class="form-control" id="location" name="location" placeholder="Location">
-			</div>
-      <div class="form-group">
-        <input type="text" value="Amsterdam,Washington" data-role="tagsinput" />
-			</div>
-		</div>
-		<button type="submit" class="btn btn-info"> Add department</button>
+	<div class="form-group">
+		<input type="text" class="form-control" id="designation" name="designation" placeholder="Designation">
 	</div>
+	<div class="form-group">
+		<input type="text" class="form-control" id="name" name="name" placeholder="Name">
+	</div>
+	<div class="form-group">
+		<input type="text" class="form-control" id="location" name="location" placeholder="Location">
+	</div>
+  <div class="form-group">
+    <input id="user_tag" name="users" type="text" data-role="tagsinput" />
+	</div>
+	<button type="submit" class="btn btn-info"> Add department</button>
 </form>
 {% endblock %}
 {% block listview_scripts %}
-<!-- Input tags script -->
-<script src="../static/js/bootstrap-tagsinput.min.js"></script>
-<!-- Bootstrap tags script -->
-<script src="../static/js/typeahead.js"></script>
-
 <script>
-  $('input').tagsinput({
-    typeahead: {
-      source: function(query) {
-        return $.getJSON('admin/users?data_type=json');
-      }
+var users = new Bloodhound({
+  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('username'),
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  prefetch : {
+    ttl: 0,
+    url : '{{url_for('admin.get_user_list')}}?data_type=json',
+    filter : function(data) {
+      return $.map(data.users, function (user) {
+        return {
+          username:user.username, id:user.id
+        };
+      });
     }
-  });
+  }
+});
+users.initialize();
+$('#user_tag').tagsinput({
+  itemValue: 'id',
+  itemText: 'username',
+  tagClass: 'tags', // check if class tag is used somewhere else
+  typeaheadjs: [{
+    highlight: true
+  },
+  {
+    name: 'users',
+    displayKey: 'username',
+    source: users.ttAdapter()
+  }],
+  freeInput: false
+});
 </script>
 <script>
   (function($) {
@@ -66,8 +78,9 @@
 
   $("#add_department").validate({
   rules: {
-    username: "required",
-    email: "required"
+    designation: "required",
+    name: "required",
+    location: "required"
   },
   errorClass: "form-invalid",
   errorPlacement: function( label, element ) {
@@ -81,16 +94,27 @@
   });
   $("#add_department").submit(function() {
     remove_loading($(this));
-
     if(options['useAJAX'] == true)
     {
-      // Dummy AJAX request (Replace this with your AJAX code)
-      // If you don't want to use AJAX, remove this
       var formData = new FormData(document.getElementById('add_department'));
-      submit_form($(this), '{{ url_for('admin.add_user') }}', formData, options);
+      formData.delete('users');
+      var json_obj = formToJSON( formData );
+      console.log(json_obj);
 
-      // Cancel the normal submission.
-      // If you don't want to use AJAX, remove this
+      // get objects in tags
+      var user_rel = $("#user_tag").tagsinput('items')
+
+      var users = [];
+      user_rel.forEach(function(user, i){
+        users.push(user);
+      });
+      json_obj['users'] = users;
+      console.log(json_obj);
+      var json_str = JSON.stringify(json_obj);
+      console.log(json_str);
+      formData.append('form_json',json_str);
+
+      submit_form($(this), '{{ url_for('admin.add_department') }}', formData, options);
       return false;
     }
   });

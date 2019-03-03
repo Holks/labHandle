@@ -1,6 +1,4 @@
-2019-01-26 11:06:28,288 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 11:08:26,523 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 11:08:41,054 ERROR: Exception on /registry/workstation [GET] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+2019-02-04 22:56:32,855 ERROR: Exception on /admin/department [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,36 +12,13 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/holger/git/md_length/app/registry/routes.py", line 35, in workstation
-    data = Workstation.query.order_by(Workstation.id).all()
-NameError: name 'Workstation' is not defined
-2019-01-26 11:09:09,011 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 11:09:11,877 ERROR: Exception on /registry/workstation [GET] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
-    context)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 509, in do_execute
-    cursor.execute(statement, parameters)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/pymysql/cursors.py", line 170, in execute
-    result = self._query(query)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/pymysql/cursors.py", line 328, in _query
-    conn.query(q)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/pymysql/connections.py", line 517, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/pymysql/connections.py", line 732, in _read_query_result
-    result.read()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/pymysql/connections.py", line 1075, in read
-    first_packet = self.connection._read_packet()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/pymysql/connections.py", line 684, in _read_packet
-    packet.check_error()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/pymysql/protocol.py", line 220, in check_error
-    err.raise_mysql_exception(self._data)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
-    raise errorclass(errno, errval)
-pymysql.err.InternalError: (1054, "Unknown column 'workstation.scope' in 'field list'")
-
-The above exception was the direct cause of the following exception:
-
+  File "/home/holger/git/md_length/app/admin/routes.py", line 87, in add_department
+    dep.from_dict(**json_obj)
+  File "/home/holger/git/md_length/app/base_model.py", line 197, in from_dict
+    col_changes = col.from_dict(**item)
+TypeError: from_dict() argument after ** must be a mapping, not str
+2019-02-04 22:57:11,760 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-02-04 22:57:23,590 ERROR: Exception on /admin/department [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -57,53 +32,13 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/holger/git/md_length/app/registry/routes.py", line 36, in workstation
-    data = Workstation.query.order_by(Workstation.id).all()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/orm/query.py", line 2843, in all
-    return list(self)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/orm/query.py", line 2995, in __iter__
-    return self._execute_and_instances(context)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/orm/query.py", line 3018, in _execute_and_instances
-    result = conn.execute(querycontext.statement, self._params)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 948, in execute
-    return meth(self, multiparams, params)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/sql/elements.py", line 269, in _execute_on_connection
-    return connection._execute_clauseelement(self, multiparams, params)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1060, in _execute_clauseelement
-    compiled_sql, distilled_params
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
-    context)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
-    exc_info
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 265, in raise_from_cause
-    reraise(type(exception), exception, tb=exc_tb, cause=cause)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 248, in reraise
-    raise value.with_traceback(tb)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
-    context)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 509, in do_execute
-    cursor.execute(statement, parameters)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/pymysql/cursors.py", line 170, in execute
-    result = self._query(query)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/pymysql/cursors.py", line 328, in _query
-    conn.query(q)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/pymysql/connections.py", line 517, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/pymysql/connections.py", line 732, in _read_query_result
-    result.read()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/pymysql/connections.py", line 1075, in read
-    first_packet = self.connection._read_packet()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/pymysql/connections.py", line 684, in _read_packet
-    packet.check_error()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/pymysql/protocol.py", line 220, in check_error
-    err.raise_mysql_exception(self._data)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
-    raise errorclass(errno, errval)
-sqlalchemy.exc.InternalError: (pymysql.err.InternalError) (1054, "Unknown column 'workstation.scope' in 'field list'") [SQL: 'SELECT workstation.id AS workstation_id, workstation.file AS workstation_file, workstation.designation AS workstation_designation, workstation.scope AS workstation_scope, workstation.responsible_user_id AS workstation_responsible_user_id, workstation.instruments AS workstation_instruments, workstation.version AS workstation_version, workstation.uploaded AS workstation_uploaded, workstation.approved AS workstation_approved, workstation.last_reviewed AS workstation_last_reviewed, workstation.next_reviewed AS workstation_next_reviewed \nFROM workstation ORDER BY workstation.id'] (Background on this error at: http://sqlalche.me/e/2j85)
-2019-01-26 11:10:04,001 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 11:10:10,934 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 11:10:16,011 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 11:10:18,366 ERROR: Exception on /registry/workstation [GET] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+  File "/home/holger/git/md_length/app/admin/routes.py", line 87, in add_department
+    dep.from_dict(**json_obj)
+  File "/home/holger/git/md_length/app/base_model.py", line 197, in from_dict
+    col_changes = col.from_dict(**item)
+TypeError: from_dict() argument after ** must be a mapping, not str
+2019-02-04 23:01:01,507 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-02-04 23:01:10,538 ERROR: Exception on /admin/department [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -117,6 +52,69 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/holger/git/md_length/app/registry/routes.py", line 42, in workstation
-    data=data, header=User._default_fields, heading='Work stations')
-NameError: name 'User' is not defined
+  File "/home/holger/git/md_length/app/admin/routes.py", line 87, in add_department
+    dep.from_dict(**json_obj)
+  File "/home/holger/git/md_length/app/base_model.py", line 197, in from_dict
+    col_changes = col.from_dict(**item)
+TypeError: from_dict() argument after ** must be a mapping, not str
+2019-02-04 23:05:33,807 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-02-04 23:05:43,184 ERROR: Exception on /admin/department [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/holger/git/md_length/app/admin/routes.py", line 87, in add_department
+    dep.from_dict(**json_obj)
+  File "/home/holger/git/md_length/app/base_model.py", line 197, in from_dict
+    col_changes = col.from_dict(**item)
+TypeError: from_dict() argument after ** must be a mapping, not str
+2019-02-04 23:07:44,360 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-02-04 23:07:53,844 ERROR: Exception on /admin/department [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/holger/git/md_length/app/admin/routes.py", line 73, in add_department
+    json_obj = json.loads(request.form.get('form_json'))
+  File "/usr/lib/python3.5/json/__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+2019-02-04 23:08:50,476 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-02-04 23:08:59,274 ERROR: Exception on /admin/department [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/holger/git/md_length/app/admin/routes.py", line 73, in add_department
+    json_obj = json.loads(request.form.get('form_json'))
+  File "/usr/lib/python3.5/json/__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+2019-02-04 23:10:22,766 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]

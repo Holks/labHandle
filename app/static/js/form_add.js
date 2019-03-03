@@ -1,12 +1,13 @@
 "use strict";
 function formToJSON( formData ) {
   var object = {};
-  formData.forEach(function(value, key){
+  formData.forEach(function(value, key, element){
+
     object[key] = value;
   });
   var json_obj = JSON.stringify(object);
 
-  return json_obj;
+  return object;
 };
 // Loading
 //----------------------------------------------
@@ -42,8 +43,9 @@ function submit_form($form, dest_url, formData, options)
   {
     form_loading($form, options);
 
-    var json_obj = formToJSON(formData);
-    formData.append('form_json', json_obj);
+    //var json_obj = formToJSON( formData );
+    //console.log(json_obj);
+    //formData.append('form_json', json_obj);
     $.ajax({
       method: "POST",
       url: dest_url,

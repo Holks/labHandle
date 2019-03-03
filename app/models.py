@@ -16,6 +16,8 @@ from flask_login import UserMixin
 
 from app.base_model import Base
 
+import unittest
+
 association_table_unc = db.Table('association_unc',
     db.Column('uncertainty_id', db.Integer, db.ForeignKey('uncertainty.id')),
     db.Column('deparment_id', db.Integer, db.ForeignKey('department.id'))
@@ -73,18 +75,14 @@ class User(Base, PaginatedAPIMixin, UserMixin):
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
     token = db.Column(db.String(32), index=True, unique=True)
     token_expiration = db.Column(db.DateTime)
-    departments = db.relationship(
-        "Department",
-        secondary=association_table_dep,
-        back_populates="users")
     category_id = db.Column(db.Integer, db.ForeignKey('usercategory.id'))
     category = db.relationship(
-        "Usercategory", backref="users")
+        "Usercategory", backref=db.backref('users', lazy='dynamic'))
     status = db.Column(db.Integer, db.ForeignKey('userstatus.id'))
     _default_fields = [
         "username",
         "last_seen",
-        "departments",
+        #"departments",
         "category_id",
         "about_me",
     ]
@@ -120,13 +118,6 @@ class User(Base, PaginatedAPIMixin, UserMixin):
         except:
             return
         return User.query.get(id)
-    """
-    def from_dict(self, data, new_user=False):
-        for field in ['username', 'email', 'about_me']:
-            if field in data:
-                setattr(self, field, data[field])
-        if new_user and 'password' in data:
-            self.set_password(data['password'])"""
 
     def get_token(self, expires_in=3600):
         now = datetime.utcnow()
@@ -139,6 +130,14 @@ class User(Base, PaginatedAPIMixin, UserMixin):
 
     def revoke_token(self):
         self.token_expiration = datetime.utcnow() - timedelta(seconds=1)
+
+    def add_user(self, user):
+        self.username = user['username']
+        self.email = user['email']
+        self.set_password(user['password'])
+        db.session.add(self)
+        db.session.commit()
+
 
     @staticmethod
     def check_token(token):
@@ -160,24 +159,26 @@ class Documentcategory(Base):
 
 class Department(Base):
     id = db.Column(db.Integer, primary_key=True)
-    designation = db.Column(db.Integer, nullable=False, unique=True)
+    designation = db.Column(db.String(20), nullable=False, unique=True)
     name = db.Column(db.String(100), nullable=False, index=True)
     location = db.Column(db.String(100), index=True)
     created = db.Column(db.DateTime, default=datetime.utcnow)
     users = db.relationship(
         "User",
         secondary=association_table_dep,
-        back_populates="departments")
+        lazy='dynamic',
+        backref=db.backref('departments', lazy='dynamic'))
     uncertainties = db.relationship(
         "Uncertainty",
         secondary=association_table_unc,
-        backref="departments")
+        lazy='dynamic',
+        backref=db.backref('departments', lazy='dynamic'))
     _default_fields = [
         "name",
         "designation",
-        "location"
+        "location",
+        "users"
     ]
-
 
 class Documentstatus(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -204,6 +205,11 @@ class Document(Base):
         backref="documents_reviewed")
     version = db.Column(db.String(200), unique=True, nullable=False)
     uploaded = db.Column(db.DateTime, default=datetime.utcnow)
+    approver_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    approver = db.relationship(
+        "User",
+        foreign_keys=[approver_id],
+        backref="documents_approved")
     approved = db.Column(db.DateTime, default=None)
     last_reviewed = db.Column(db.DateTime, default=None)
     next_reviewed = db.Column(db.DateTime, default=None)

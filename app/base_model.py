@@ -58,7 +58,8 @@ class Base(db.Model):
                 is_list = self.__mapper__.relationships[key].uselist
                 if is_list:
                     items = getattr(self, key)
-                    if self.__mapper__.relationships[key].query_class is not None:
+                    if self.__mapper__.relationships[key].query_class \
+                        is not None:
                         if hasattr(items, "all"):
                             items = items.all()
                     ret_data[key] = []
@@ -72,7 +73,8 @@ class Base(db.Model):
                         )
                 else:
                     if (
-                        self.__mapper__.relationships[key].query_class is not None
+                        self.__mapper__.relationships[key].query_class \
+                            is not None
                         or self.__mapper__.relationships[key].instrument_class
                         is not None
                     ):
@@ -94,7 +96,8 @@ class Base(db.Model):
             if not hasattr(self.__class__, key):
                 continue
             attr = getattr(self.__class__, key)
-            if not (isinstance(attr, property) or isinstance(attr, QueryableAttribute)):
+            if not (isinstance(attr, property)
+                    or isinstance(attr, QueryableAttribute)):
                 continue
             check = "%s.%s" % (_path, key)
             if check in _hide or key in hidden:
@@ -117,60 +120,87 @@ class Base(db.Model):
 
     def from_dict(self, **kwargs):
         """Update this model with a dictionary."""
-
+        print("kwargs {}".format(kwargs))
         _force = kwargs.pop("_force", False)
 
-        readonly = self._readonly_fields if hasattr(self, "_readonly_fields") else []
+        readonly = self._readonly_fields if hasattr(self, "_readonly_fields") \
+            else []
+        # if hidden_fields list defined append to readonly list
         if hasattr(self, "_hidden_fields"):
             readonly += self._hidden_fields
-
+        # force id, created_at and modified_at as readonly
         readonly += ["id", "created_at", "modified_at"]
-
+        print("read only {}".format(readonly))
+        # read table column keys
         columns = self.__table__.columns.keys()
+        print("columns {}".format(columns))
+        # read table relationships
         relationships = self.__mapper__.relationships.keys()
+        print("relationships {}".format(relationships))
+        # list of valid attributes of the object
         properties = dir(self)
-
+        print("properties {}".format(properties))
+        #define empty dict to store changes in the db
         changes = {}
-
+        # iterate keys in columns
         for key in columns:
+            # ignore special keys
             if key.startswith("_"):
                 continue
+            # if key is editable = not in readonly list
             allowed = True if _force or key not in readonly else False
+            # is column key listed in kwargs
             exists = True if key in kwargs else False
             if allowed and exists:
+                # get current table value for the key
                 val = getattr(self, key)
                 if val != kwargs[key]:
+                    # no point in updating to the same value
                     changes[key] = {"old": val, "new": kwargs[key]}
+                    # set column current row value
                     setattr(self, key, kwargs[key])
-
+        # iterate relationships
         for rel in relationships:
+            # ignore special keys
             if key.startswith("_"):
                 continue
             allowed = True if _force or rel not in readonly else False
             exists = True if rel in kwargs else False
             if allowed and exists:
                 is_list = self.__mapper__.relationships[rel].uselist
+                # process list values
                 if is_list:
                     valid_ids = []
                     query = getattr(self, rel)
+                    print("query {}".format(query))
                     cls = self.__mapper__.relationships[rel].argument()
+                    print("cls {}".format(cls))
                     for item in kwargs[rel]:
+                        print("item {}".format(item))
+                        # if item has id key and value exists in db
                         if (
-                            "id" in item
-                            and query.filter_by(id=item["id"]).limit(1).count() == 1
+                            "id" in item \
+                            and cls.query.filter_by(id=item["id"])
+                                .limit(1).count() == 1
                         ):
                             obj = cls.query.filter_by(id=item["id"]).first()
+                            print("obj {}".format(obj))
                             col_changes = obj.from_dict(**item)
+                            print("col_changes1 {}".format(col_changes))
                             if col_changes:
                                 col_changes["id"] = str(item["id"])
                                 if rel in changes:
                                     changes[rel].append(col_changes)
                                 else:
                                     changes.update({rel: [col_changes]})
+                            print("col_changes2 {}".format(col_changes))
                             valid_ids.append(str(item["id"]))
+                            print("valid_ids {}".format(valid_ids))
+                        """
                         else:
                             col = cls()
                             col_changes = col.from_dict(**item)
+                            print("col_changes {}".format(col_changes))
                             query.append(col)
                             db.session.flush()
                             if col_changes:
@@ -180,21 +210,23 @@ class Base(db.Model):
                                 else:
                                     changes.update({rel: [col_changes]})
                             valid_ids.append(str(col.id))
-
+                        """
                     # delete rows from relationship that were not in kwargs[rel]
-                    for item in query.filter(not_(cls.id.in_(valid_ids))).all():
+                    for item in cls.query.filter(~(cls.id.in_(valid_ids))).all():
                         col_changes = {"id": str(item.id), "deleted": True}
+                        print("col_changes {}".format(col_changes))
                         if rel in changes:
                             changes[rel].append(col_changes)
                         else:
                             changes.update({rel: [col_changes]})
                         db.session.delete(item)
-
+                # single one to many
                 else:
                     val = getattr(self, rel)
                     if self.__mapper__.relationships[rel].query_class is not None:
                         if val is not None:
                             col_changes = val.from_dict(**kwargs[rel])
+                            print("col_changes3 {}".format(col_changes))
                             if col_changes:
                                 changes.update({rel: col_changes})
                     else:

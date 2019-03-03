@@ -18,27 +18,30 @@ def create_app(config_class=Config):
     app.config.from_object(config_class)
     app.jinja_env.globals.update(enumerate=enumerate)
     db.init_app(app)
-    
+
     migrate.init_app(app, db)
     login.init_app(app)
     mail.init_app(app)
-    
-    
+
+
     from app.registry import bp as registry_bp
-    app.register_blueprint(registry_bp, url_prefix='/registry') 
-    
+    app.register_blueprint(registry_bp, url_prefix='/registry')
+
     from app.auth import bp as auth_bp
-    app.register_blueprint(auth_bp, url_prefix='/auth') 
-    
+    app.register_blueprint(auth_bp, url_prefix='/auth')
+
     from app.admin import bp as admin_bp
     app.register_blueprint(admin_bp, url_prefix='/admin')
 
     from app.document import bp as document_bp
     app.register_blueprint(document_bp, url_prefix='/document')
-    
+
+    from app.project import bp as project_bp
+    app.register_blueprint(project_bp, url_prefix='/project')
+
     from app.main import bp as main_bp
     app.register_blueprint(main_bp)
-    
+
     from app.api import bp as api_bp
     app.register_blueprint(api_bp, url_prefix='/api')
 

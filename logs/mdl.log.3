@@ -1,117 +1,129 @@
-2019-01-26 23:52:12,481 ERROR: Exception on /admin/instruments [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+2019-02-26 07:29:11,378 ERROR: Exception on /admin/users [GET] [in /home/holger/.local/lib/python3.5/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/holger/git/md_length/app/admin/routes.py", line 112, in get_instrument_list
-    resp = update_instrument_list(auth)
-  File "/home/holger/git/md_length/app/admin/routes.py", line 102, in update_instrument_list
-    return ext_modules.api_get_instruments(auth_credentials=payload)
-  File "/home/holger/git/md_length/app/ext_modules.py", line 25, in api_get_instruments
-    session_api = api_auth(auth_credentials)
-  File "/home/holger/git/md_length/app/ext_modules.py", line 9, in api_auth
-    auth_credentials['password'])
-KeyError: 'password'
-2019-01-26 23:52:54,513 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 23:53:19,708 ERROR: Exception on /admin/instruments [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+  File "/home/holger/.local/lib/python3.5/site-packages/pymysql/connections.py", line 583, in connect
+    **kwargs)
+  File "/usr/lib/python3.5/socket.py", line 712, in create_connection
+    raise err
+  File "/usr/lib/python3.5/socket.py", line 703, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 2158, in _wrap_pool_connect
+    return fn()
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/pool.py", line 400, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/pool.py", line 788, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/pool.py", line 529, in checkout
+    rec = pool._do_get()
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/pool.py", line 1193, in _do_get
+    self._dec_overflow()
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 249, in reraise
     raise value
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/holger/git/md_length/app/admin/routes.py", line 111, in get_instrument_list
-    resp = update_instrument_list(auth)
-  File "/home/holger/git/md_length/app/admin/routes.py", line 101, in update_instrument_list
-    return ext_modules.api_get_instruments(auth_credentials=auth)
-  File "/home/holger/git/md_length/app/ext_modules.py", line 29, in api_get_instruments
-    '/customer/{}/instruments'.format(company_id))
-  File "/home/holger/git/md_length/app/ext_modules.py", line 15, in api_query
-    session_api.get(api_url + endpoint +"{0}&page={1}".format(filter,i))
-AttributeError: 'NoneType' object has no attribute 'get'
-2019-01-26 23:55:24,093 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 23:55:37,199 ERROR: Exception on /admin/instruments [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/pool.py", line 1190, in _do_get
+    return self._create_connection()
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/pool.py", line 347, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/pool.py", line 474, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/pool.py", line 671, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/engine/strategies.py", line 106, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 412, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/holger/.local/lib/python3.5/site-packages/pymysql/__init__.py", line 94, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/holger/.local/lib/python3.5/site-packages/pymysql/connections.py", line 325, in __init__
+    self.connect()
+  File "/home/holger/.local/lib/python3.5/site-packages/pymysql/connections.py", line 630, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '172.17.0.3' (timed out)")
+
+The above exception was the direct cause of the following exception:
+
 Traceback (most recent call last):
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
     raise value
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/holger/git/md_length/app/admin/routes.py", line 111, in get_instrument_list
-    resp = update_instrument_list(auth)
-  File "/home/holger/git/md_length/app/admin/routes.py", line 101, in update_instrument_list
-    return ext_modules.api_get_instruments(auth_credentials=auth)
-  File "/home/holger/git/md_length/app/ext_modules.py", line 30, in api_get_instruments
-    '/customer/{}/instruments'.format(company_id))
-  File "/home/holger/git/md_length/app/ext_modules.py", line 15, in api_query
-    session.get(api_url + endpoint +"{0}&page={1}".format(filter,i))
-NameError: name 'i' is not defined
-2019-01-26 23:57:41,504 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-27 00:02:17,056 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-27 00:02:41,307 ERROR: Exception on /admin/instruments [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+  File "/home/holger/git/labHandle/app/admin/routes.py", line 17, in get_user_list
+    data = User.query.order_by(User.id).all()
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/orm/query.py", line 2843, in all
+    return list(self)
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/orm/query.py", line 2995, in __iter__
+    return self._execute_and_instances(context)
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/orm/query.py", line 3016, in _execute_and_instances
+    close_with_result=True)
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/orm/query.py", line 3025, in _get_bind_args
+    **kw
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/orm/query.py", line 3007, in _connection_from_session
+    conn = self.session.connection(**kw)
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/orm/session.py", line 1046, in connection
+    execution_options=execution_options)
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/orm/session.py", line 1051, in _connection_for_bind
+    engine, execution_options)
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/orm/session.py", line 409, in _connection_for_bind
+    conn = bind.contextual_connect()
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 2123, in contextual_connect
+    self._wrap_pool_connect(self.pool.connect, None),
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 2162, in _wrap_pool_connect
+    e, dialect, self)
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1476, in _handle_dbapi_exception_noconnection
+    exc_info
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 265, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 248, in reraise
+    raise value.with_traceback(tb)
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 2158, in _wrap_pool_connect
+    return fn()
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/pool.py", line 400, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/pool.py", line 788, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/pool.py", line 529, in checkout
+    rec = pool._do_get()
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/pool.py", line 1193, in _do_get
+    self._dec_overflow()
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 249, in reraise
     raise value
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/holger/git/md_length/app/admin/routes.py", line 111, in get_instrument_list
-    resp = update_instrument_list(auth)
-  File "/home/holger/git/md_length/app/admin/routes.py", line 101, in update_instrument_list
-    return ext_modules.api_get_instruments(auth_credentials=auth)
-  File "/home/holger/git/md_length/app/ext_modules.py", line 42, in api_get_instruments
-    for i in range(2, math.ceil(pages)+1):
-NameError: name 'math' is not defined
-2019-01-27 00:03:32,434 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-27 00:03:47,874 ERROR: Exception on /admin/instruments [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/holger/git/md_length/app/admin/routes.py", line 111, in get_instrument_list
-    resp = update_instrument_list(auth)
-  File "/home/holger/git/md_length/app/admin/routes.py", line 101, in update_instrument_list
-    return ext_modules.api_get_instruments(auth_credentials=auth)
-  File "/home/holger/git/md_length/app/ext_modules.py", line 50, in api_get_instruments
-    instruments = json.loads(resp_next.read().decode('utf-8'))
-AttributeError: 'Response' object has no attribute 'read'
-2019-01-27 00:08:36,608 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/pool.py", line 1190, in _do_get
+    return self._create_connection()
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/pool.py", line 347, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/pool.py", line 474, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/pool.py", line 671, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/engine/strategies.py", line 106, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 412, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/holger/.local/lib/python3.5/site-packages/pymysql/__init__.py", line 94, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/holger/.local/lib/python3.5/site-packages/pymysql/connections.py", line 325, in __init__
+    self.connect()
+  File "/home/holger/.local/lib/python3.5/site-packages/pymysql/connections.py", line 630, in connect
+    raise exc
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on '172.17.0.3' (timed out)") (Background on this error at: http://sqlalche.me/e/e3q8)
+2019-02-26 07:31:29,029 INFO: Length dep. server startup [in /home/holger/git/labHandle/app/__init__.py:76]
+2019-02-26 07:32:02,541 INFO: Length dep. server startup [in /home/holger/git/labHandle/app/__init__.py:76]
+2019-02-26 07:33:04,974 INFO: Length dep. server startup [in /home/holger/git/labHandle/app/__init__.py:76]
+2019-02-26 07:35:24,393 INFO: Length dep. server startup [in /home/holger/git/labHandle/app/__init__.py:76]
+2019-02-26 07:35:33,196 INFO: Length dep. server startup [in /home/holger/git/labHandle/app/__init__.py:76]
+2019-02-27 21:45:07,878 INFO: Length dep. server startup [in /home/holger/git/labHandle/app/__init__.py:76]

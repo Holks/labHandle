@@ -66,7 +66,8 @@
     if(options['useAJAX'] == true)
     {
       var formData = new FormData(document.getElementById('update_instrument'));
-      var json_obj = formToJSON( formData );
+      var json_obj = JSON.stringify(formToJSON( formData ));
+
       console.log( json_obj );
       $.ajax({
         type: "POST",

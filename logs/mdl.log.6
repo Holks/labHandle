@@ -1,4 +1,4 @@
-2019-01-26 14:50:56,180 ERROR: Exception on /admin/user [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+2019-02-06 07:06:39,315 ERROR: Exception on /admin/department [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,13 +12,20 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/holger/git/md_length/app/admin/routes.py", line 36, in add_user
-    json_obj = json.loads(request.args.get('form_json'))
-  File "/usr/lib/python3.5/json/__init__.py", line 312, in loads
-    s.__class__.__name__))
-TypeError: the JSON object must be str, not 'NoneType'
-2019-01-26 14:51:18,361 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 14:51:35,837 ERROR: Exception on /admin/user [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+  File "/home/holger/git/md_length/app/admin/routes.py", line 86, in add_department
+    dep.from_dict(**json_obj)
+  File "/home/holger/git/md_length/app/base_model.py", line 183, in from_dict
+    and query.filter_by(id=item["id"])
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/orm/query.py", line 1690, in filter_by
+    return self.filter(sql.and_(*clauses))
+  File "<string>", line 2, in filter
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/orm/base.py", line 198, in generate
+    self = args[0]._clone()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/orm/dynamic.py", line 289, in _clone
+    orm_util.instance_str(instance), self.attr.key))
+sqlalchemy.orm.exc.DetachedInstanceError: Parent instance <Department at 0x7f9543511b38> is not bound to a Session, and no contextual session is established; lazy load operation of attribute 'users' cannot proceed (Background on this error at: http://sqlalche.me/e/bhk3)
+2019-02-06 07:10:26,508 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-02-06 07:10:34,982 ERROR: Exception on /admin/department [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -32,45 +39,20 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/holger/git/md_length/app/admin/routes.py", line 36, in add_user
-    json_obj = json.loads(request.args.get('form_json'))
-  File "/usr/lib/python3.5/json/__init__.py", line 312, in loads
-    s.__class__.__name__))
-TypeError: the JSON object must be str, not 'NoneType'
-2019-01-26 14:52:01,714 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 14:55:55,789 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 14:57:07,747 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 14:57:45,555 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 14:58:50,661 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 14:59:26,970 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 15:05:07,266 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 15:07:31,084 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 15:22:19,462 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 15:22:50,110 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 15:24:15,753 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 15:28:01,476 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 15:29:02,575 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 15:29:44,361 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 15:31:34,083 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 15:34:47,920 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 15:35:07,832 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 15:35:51,571 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 15:36:49,449 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 15:37:39,399 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 15:43:13,735 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 15:44:29,554 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 15:44:58,016 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 15:45:50,619 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 15:48:06,749 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 15:54:35,838 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 15:58:14,184 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 15:59:19,316 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 16:00:28,273 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 20:54:35,669 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 20:56:13,080 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 20:56:21,089 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 21:13:15,864 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-26 21:13:22,802 ERROR: Exception on / [GET] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+  File "/home/holger/git/md_length/app/admin/routes.py", line 86, in add_department
+    dep.from_dict(**json_obj)
+  File "/home/holger/git/md_length/app/base_model.py", line 183, in from_dict
+    and query.filter_by(id=item["id"])
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/orm/query.py", line 1690, in filter_by
+    return self.filter(sql.and_(*clauses))
+  File "<string>", line 2, in filter
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/orm/base.py", line 198, in generate
+    self = args[0]._clone()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/orm/dynamic.py", line 289, in _clone
+    orm_util.instance_str(instance), self.attr.key))
+sqlalchemy.orm.exc.DetachedInstanceError: Parent instance <Department at 0x7f98e0d58ba8> is not bound to a Session, and no contextual session is established; lazy load operation of attribute 'users' cannot proceed (Background on this error at: http://sqlalche.me/e/bhk3)
+2019-02-06 07:13:12,125 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+2019-02-06 07:13:20,351 ERROR: Exception on /admin/department [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -84,31 +66,64 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/holger/git/md_length/app/main/routes.py", line 14, in index
-    return render_template('index.html')
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/templating.py", line 135, in render_template
-    context, ctx.app)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/templating.py", line 117, in _render
-    rv = template.render(context)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/jinja2/environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/jinja2/environment.py", line 780, in handle_exception
+  File "/home/holger/git/md_length/app/admin/routes.py", line 86, in add_department
+    dep.from_dict(**json_obj)
+  File "/home/holger/git/md_length/app/base_model.py", line 183, in from_dict
+    and query.filter_by(id=item["id"])
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/orm/query.py", line 1690, in filter_by
+    return self.filter(sql.and_(*clauses))
+  File "<string>", line 2, in filter
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/orm/base.py", line 198, in generate
+    self = args[0]._clone()
+  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/orm/dynamic.py", line 289, in _clone
+    orm_util.instance_str(instance), self.attr.key))
+sqlalchemy.orm.exc.DetachedInstanceError: Parent instance <Department at 0x7f99e6a2fb70> is not bound to a Session, and no contextual session is established; lazy load operation of attribute 'users' cannot proceed (Background on this error at: http://sqlalche.me/e/bhk3)
+2019-02-10 09:21:39,214 INFO: Length dep. server startup [in /home/holger/git/labHandle/app/__init__.py:73]
+2019-02-10 09:21:54,668 ERROR: Exception on /admin/department [GET] [in /home/holger/.local/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/util/_collections.py", line 999, in __call__
+    return self.registry[key]
+KeyError: 140152150615808
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/jinja2/_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "/home/holger/git/md_length/app/templates/index.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/home/holger/git/md_length/app/templates/base.html", line 191, in top-level template code
-    <a href="{{ url_for('admin.get_instrument_list') }}"><i class="fas fa-cogs"></i> Instruments</a>
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/helpers.py", line 356, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2061, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
     raise value
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/helpers.py", line 345, in url_for
-    force_external=external)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/werkzeug/routing.py", line 1776, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'admin.get_instrument_list'. Did you mean 'admin.get_department_list' instead?
-2019-01-26 21:21:41,010 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/holger/git/labHandle/app/admin/routes.py", line 63, in get_department_list
+    data = Department.query.order_by(Department.id).all()
+  File "/home/holger/.local/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py", line 514, in __get__
+    return type.query_class(mapper, session=self.sa.session())
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/orm/scoping.py", line 74, in __call__
+    return self.registry()
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/util/_collections.py", line 1001, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/orm/session.py", line 3010, in __call__
+    return self.class_(**local_kw)
+  File "/home/holger/.local/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py", line 143, in __init__
+    bind = options.pop('bind', None) or db.engine
+  File "/home/holger/.local/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py", line 877, in engine
+    return self.get_engine()
+  File "/home/holger/.local/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py", line 896, in get_engine
+    return connector.get_engine()
+  File "/home/holger/.local/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py", line 556, in get_engine
+    self._sa.apply_driver_hacks(self._app, info, options)
+  File "/home/holger/.local/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py", line 830, in apply_driver_hacks
+    if info.drivername.startswith('mysql'):
+AttributeError: 'NoneType' object has no attribute 'drivername'
+2019-02-10 09:36:01,196 INFO: Length dep. server startup [in /home/holger/git/labHandle/app/__init__.py:73]
+2019-02-10 09:37:47,460 INFO: Length dep. server startup [in /home/holger/git/labHandle/app/__init__.py:73]
+2019-02-10 09:37:55,166 INFO: Length dep. server startup [in /home/holger/git/labHandle/app/__init__.py:73]
+2019-02-10 09:38:00,128 INFO: Length dep. server startup [in /home/holger/git/labHandle/app/__init__.py:73]
+2019-02-10 09:40:18,718 INFO: Length dep. server startup [in /home/holger/git/labHandle/app/__init__.py:73]
+2019-02-10 10:11:01,647 INFO: Length dep. server startup [in /home/holger/git/labHandle/app/__init__.py:73]

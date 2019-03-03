@@ -4,7 +4,6 @@ from flask import render_template, flash, redirect, url_for, request, g, \
 from app import db
 from app.main import bp
 from werkzeug.utils import secure_filename
-import os
 from app.models import User
 import json
 
@@ -14,7 +13,7 @@ def index():
     return render_template('index.html')
 
 @bp.route('/calendar', methods=['GET'])
-def calendar():   
+def calendar():
     return render_template('main/calendar.html')
 
 @bp.route('/tasks', methods=['GET'])

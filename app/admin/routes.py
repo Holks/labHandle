@@ -3,7 +3,7 @@ from flask import render_template, flash, redirect, url_for, request, g, \
     jsonify, current_app
 from app import db
 from app.admin import bp
-from app.models import Department, Document, User, Instrument
+from app.models import Department, Document, User, Instrument, Usercategory
 from app.email import send_user_created
 import json
 from app import ext_modules
@@ -18,8 +18,8 @@ def get_user_list():
     # ?data=json used for getting data as json object or other formats
     if 'data_type' in args.keys() and 'json' in args['data_type']:
         json_data = [item.to_dict() for item in data]
-        print(json_data)
-        return jsonify(json_data)
+        #print(json_data)
+        return jsonify({'users':json_data})
     return render_template('admin/users.html', title='Users', \
         data=data, header=User._default_fields, heading='Users')
 
@@ -38,10 +38,8 @@ def add_user():
     if 'username' not in json_obj or 'email' not in json_obj \
         or 'password' not in json_obj:
         flash('must include username, email and password fields')
-        print('must include username, email and password fields')
     elif User.query.filter_by(username=json_obj['username']).first():
         flash('please use a different username')
-        print('please use a different username')
     else:
         user = User()
         user.from_dict(**json_obj)
@@ -51,7 +49,6 @@ def add_user():
         if user:
             flash('Added user {0}'.format(json_obj['username']))
         else:
-            print('Unable to add new user {0}'.format(json_obj['username']))
             flash('Unable to add new user {0}'.format(json_obj['username']))
         #return redirect(url_for('admin.get_user_list'))
     data = User.query.order_by(User.id).all()
@@ -73,7 +70,43 @@ def get_department_list():
 
 @bp.route('/department', methods=['POST'])
 def add_department():
-    return render_template('admin/add_department.html', title='')
+    json_obj = json.loads(request.form.get('form_json'))
+    print(json.dumps(json_obj, default=str))
+    if 'designation' not in json_obj or 'name' not in json_obj \
+        or 'location' not in json_obj:
+        flash('must include designation, name and location')
+    elif Department.query\
+            .filter_by(designation=json_obj['designation']).first():
+        flash('please use a different designation')
+    else:
+        dep = Department()
+        print(json.dumps(json_obj, default=str))
+        #dep.add_department(json_obj)
+        dep.from_dict(**json_obj)
+        db.session.add(dep)
+
+        if not Usercategory.query.filter_by(name \
+                =json_obj['designation']+"_viewer").first():
+            viewer = Usercategory(name=json_obj['designation']+"_viewer")
+            db.session.add(viewer)
+        if not Usercategory.query.filter_by(name \
+                =json_obj['designation']+"_reader").first():
+            reader = Usercategory(name=json_obj['designation']+"_reader")
+            db.session.add(reader)
+        if not Usercategory.query.filter_by(name \
+                =json_obj['designation']+"_approver").first():
+            approver = Usercategory(name=json_obj['designation']+"_approver")
+            db.session.add(approver)
+        db.session.commit()
+        user = Department.query\
+            .filter_by(designation=json_obj['designation']).first()
+        if user:
+            flash('Added user {0}'.format(json_obj['designation']))
+        else:
+            flash('Unable to add new user {0}'.format(json_obj['designation']))
+        #return redirect(url_for('admin.get_user_list'))
+    data = Department.query.order_by(Department.id).all()
+    return redirect(url_for('admin.get_department_list'))
 
 @bp.route('/department', methods=['DELETE'])
 def archive_department():

@@ -1,0 +1,36 @@
+{% extends "index.html" %}
+
+{% block app_admin %}
+<li>
+    <a href="#"><i class="fa fa-sitemap fa-fw"></i> Add<span class="fa arrow"></span></a>
+    <ul class="nav nav-second-level">
+        <li>
+            <a href="{{ url_for('admin.add_document') }}">Document type</a>
+        </li>
+        <li>
+            <a href="#">User</a>
+        </li>
+        <li>
+            <a href="#">Uncertainty type <span class="fa arrow"></span></a>
+            <ul class="nav nav-third-level">
+                <li>
+                    <a href="{{ url_for('admin.index') }}">Third Level Item</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('admin.index') }}">Third Level Item</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('admin.index') }}">Third Level Item</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('admin.index') }}">Third Level Item</a>
+                </li>
+            </ul>
+            <!-- /.nav-third-level -->
+        </li>
+    </ul>
+    <!-- /.nav-second-level -->
+</li>
+
+
+{% endblock %}

@@ -12,9 +12,11 @@
     {% else %}
         <title>Length business!</title>
     {% endif %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"-->
     <!-- <link href="../static/css/bootstrap.min.css" rel="stylesheet">  -->
 
     <!-- MetisMenu CSS -->
@@ -26,6 +28,8 @@
     <!-- Custom Fonts -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="../static/css/typeaheadjs.css">
     {# application libs and other into app_head #}
     {% block app_head %}{% endblock %}
 
@@ -194,6 +198,9 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
+                            <a href="{{ url_for('project.projects') }}"><i class="fas fa-file"></i> Projects</a>
+                        </li>
+                        <li>
                             <a href="{{ url_for('main.calendar') }}"><i class="far fa-calendar-alt fa-fw"></i> Calendar</a>
                         </li>
                         {# application admin section #}
@@ -225,13 +232,19 @@
         <!-- /#page-wrapper -->
 
     </div>
-    <!-- /#wrapper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+    <script src="../static/js/bootstrap-tagsinput.min.js"></script>
+
 
     <!-- jQuery -->
-    <script src="../static/js/jquery.min.js"></script>
-
+    <!-- script src="../static/js/jquery.min.js"></script -->
+    <!-- serializejson -->
+    <script src="../static/js/jquery.serializejson.js"></script>
     <!-- Bootstrap JS -->
-    <script src="../static/js/bootstrap.min.js"></script>
+    <!-- script src="../static/js/bootstrap.min.js"></script -->
 
     <!-- Metis Menu Plugin JavaScript -->
     <script src="../static/js/metisMenu.min.js"></script>

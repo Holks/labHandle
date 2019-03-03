@@ -1,115 +1,138 @@
-2019-01-27 00:08:50,570 ERROR: Exception on /admin/instruments [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+2019-02-27 21:46:05,915 ERROR: Exception on /admin/user [POST] [in /home/holger/.local/lib/python3.5/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
     raise value
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/holger/git/md_length/app/admin/routes.py", line 111, in get_instrument_list
-    resp = update_instrument_list(auth)
-  File "/home/holger/git/md_length/app/admin/routes.py", line 101, in update_instrument_list
-    return ext_modules.api_get_instruments(auth_credentials=auth)
-  File "/home/holger/git/md_length/app/ext_modules.py", line 49, in api_get_instruments
-    instruments = json.loads(resp_next.read().decode('utf-8'))
-AttributeError: 'Response' object has no attribute 'read'
-2019-01-27 00:10:55,999 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-27 00:11:30,204 ERROR: Exception on /admin/instruments [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+  File "/home/holger/git/labHandle/app/admin/routes.py", line 37, in add_user
+    json_obj = json.loads(request.form.get('form_json'))
+  File "/usr/lib/python3.5/json/__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+2019-02-27 21:49:25,578 INFO: Length dep. server startup [in /home/holger/git/labHandle/app/__init__.py:76]
+2019-02-27 21:49:30,512 ERROR: Exception on /admin/user [POST] [in /home/holger/.local/lib/python3.5/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
     raise value
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/holger/git/md_length/app/admin/routes.py", line 111, in get_instrument_list
-    resp = update_instrument_list(auth)
-  File "/home/holger/git/md_length/app/admin/routes.py", line 101, in update_instrument_list
-    return ext_modules.api_get_instruments(auth_credentials=auth)
-  File "/home/holger/git/md_length/app/ext_modules.py", line 49, in api_get_instruments
-    instruments = json.loads(resp_next.read().decode('utf-8'))
-AttributeError: 'Response' object has no attribute 'read'
-2019-01-27 00:12:58,148 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-27 00:15:58,266 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-27 00:17:51,034 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-27 00:40:18,677 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-27 00:40:24,896 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-27 00:40:28,918 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-27 00:41:32,443 ERROR: Exception on /admin/instruments [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+  File "/home/holger/git/labHandle/app/admin/routes.py", line 37, in add_user
+    json_obj = json.loads(request.form.get('form_json'))
+  File "/usr/lib/python3.5/json/__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+2019-02-27 21:50:04,582 ERROR: Exception on /admin/user [POST] [in /home/holger/.local/lib/python3.5/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
     raise value
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/holger/git/md_length/app/admin/routes.py", line 123, in get_instrument_list
-    instrument['last_maintenance_date']),
-TypeError: a float is required
-2019-01-27 00:42:13,312 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-27 00:44:13,109 ERROR: Exception on /admin/instruments [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+  File "/home/holger/git/labHandle/app/admin/routes.py", line 37, in add_user
+    json_obj = json.loads(request.form.get('form_json'))
+  File "/usr/lib/python3.5/json/__init__.py", line 312, in loads
+    s.__class__.__name__))
+TypeError: the JSON object must be str, not 'NoneType'
+2019-02-27 21:52:21,496 INFO: Length dep. server startup [in /home/holger/git/labHandle/app/__init__.py:76]
+2019-02-27 22:10:27,300 INFO: Length dep. server startup [in /home/holger/git/labHandle/app/__init__.py:76]
+2019-02-27 22:11:38,546 INFO: Length dep. server startup [in /home/holger/git/labHandle/app/__init__.py:76]
+2019-02-27 22:11:41,214 ERROR: Exception on /api/users [POST] [in /home/holger/.local/lib/python3.5/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
     raise value
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/holger/git/md_length/app/admin/routes.py", line 123, in get_instrument_list
-    float(instrument['last_maintenance_date'])),
-TypeError: float() argument must be a string or a number, not 'NoneType'
-2019-01-27 00:45:35,534 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-27 00:46:44,425 ERROR: Exception on /admin/instruments [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+  File "/home/holger/git/labHandle/app/api/users.py", line 31, in create_user
+    user.add_user(data)
+  File "/home/holger/git/labHandle/app/models.py", line 137, in add_user
+    set_password(self, user['password'])
+NameError: name 'set_password' is not defined
+2019-02-27 22:12:00,868 INFO: Length dep. server startup [in /home/holger/git/labHandle/app/__init__.py:76]
+2019-02-27 22:12:03,028 ERROR: Exception on /api/users [POST] [in /home/holger/.local/lib/python3.5/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
     raise value
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/holger/git/md_length/app/admin/routes.py", line 125, in get_instrument_list
-    print(json.dumps(data, indent=2))
-  File "/usr/lib/python3.5/json/__init__.py", line 237, in dumps
-    **kw).encode(obj)
-  File "/usr/lib/python3.5/json/encoder.py", line 200, in encode
-    chunks = list(chunks)
-  File "/usr/lib/python3.5/json/encoder.py", line 429, in _iterencode
-    yield from _iterencode_dict(o, _current_indent_level)
-  File "/usr/lib/python3.5/json/encoder.py", line 403, in _iterencode_dict
-    yield from chunks
-  File "/usr/lib/python3.5/json/encoder.py", line 436, in _iterencode
-    o = _default(o)
-  File "/usr/lib/python3.5/json/encoder.py", line 179, in default
-    raise TypeError(repr(o) + " is not JSON serializable")
-TypeError: datetime.datetime(2019, 1, 14, 0, 0) is not JSON serializable
-2019-01-27 00:47:33,320 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+  File "/home/holger/git/labHandle/app/api/users.py", line 31, in create_user
+    user.add_user(data)
+  File "/home/holger/git/labHandle/app/models.py", line 137, in add_user
+    self.set_password(self, user['password'])
+TypeError: set_password() takes 2 positional arguments but 3 were given
+2019-02-27 22:12:19,307 INFO: Length dep. server startup [in /home/holger/git/labHandle/app/__init__.py:76]
+2019-02-27 22:12:21,247 ERROR: Exception on /api/users [POST] [in /home/holger/.local/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/holger/git/labHandle/app/api/users.py", line 32, in create_user
+    res = User.query.filter_by(username=data['username']).first_on_404
+AttributeError: 'BaseQuery' object has no attribute 'first_on_404'
+2019-02-27 22:14:08,581 INFO: Length dep. server startup [in /home/holger/git/labHandle/app/__init__.py:76]
+2019-02-27 22:14:32,640 ERROR: Exception on /api/users [POST] [in /home/holger/.local/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/holger/git/labHandle/app/api/users.py", line 32, in create_user
+    res = User.query.filter_by(username=data['username']).first_or_none()
+AttributeError: 'BaseQuery' object has no attribute 'first_or_none'
+2019-02-27 22:14:49,740 INFO: Length dep. server startup [in /home/holger/git/labHandle/app/__init__.py:76]
+2019-02-27 22:17:00,603 INFO: Length dep. server startup [in /home/holger/git/labHandle/app/__init__.py:76]

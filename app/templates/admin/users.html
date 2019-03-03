@@ -73,6 +73,10 @@
     if(options['useAJAX'] == true)
     {
       var formData = new FormData(document.getElementById('add_user'));
+      var json_obj = formToJSON( formData );
+      console.log(json_obj);
+      var json_str = JSON.stringify(json_obj);
+      formData.append('form_json',json_str);
       submit_form($(this), '{{ url_for('admin.add_user') }}', formData, options);
       return false;
     }

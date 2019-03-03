@@ -1,115 +1,123 @@
-2019-01-27 00:48:31,669 ERROR: Exception on /admin/instruments [POST] [in /home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py:1761]
+2019-02-27 22:46:01,867 ERROR: Exception on /admin/department [POST] [in /home/holger/.local/lib/python3.5/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
-    context)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 509, in do_execute
-    cursor.execute(statement, parameters)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/pymysql/cursors.py", line 170, in execute
-    result = self._query(query)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/pymysql/cursors.py", line 328, in _query
-    conn.query(q)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/pymysql/connections.py", line 517, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/pymysql/connections.py", line 732, in _read_query_result
-    result.read()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/pymysql/connections.py", line 1075, in read
-    first_packet = self.connection._read_packet()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/pymysql/connections.py", line 684, in _read_packet
-    packet.check_error()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/pymysql/protocol.py", line 220, in check_error
-    err.raise_mysql_exception(self._data)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
-    raise errorclass(errno, errval)
-pymysql.err.IntegrityError: (1062, "Duplicate entry '10129' for key 'ix_instrument_mois_id'")
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
     raise value
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/holger/git/md_length/app/admin/routes.py", line 129, in get_instrument_list
-    db.session.commit()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/orm/scoping.py", line 153, in do
-    return getattr(self.registry(), name)(*args, **kwargs)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/orm/session.py", line 954, in commit
-    self.transaction.commit()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/orm/session.py", line 467, in commit
-    self._prepare_impl()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/orm/session.py", line 447, in _prepare_impl
-    self.session.flush()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/orm/session.py", line 2313, in flush
-    self._flush(objects)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/orm/session.py", line 2440, in _flush
-    transaction.rollback(_capture_exception=True)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
-    compat.reraise(exc_type, exc_value, exc_tb)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 249, in reraise
+  File "/home/holger/git/labHandle/app/admin/routes.py", line 86, in add_department
+    dep.from_dict(**json_obj)
+  File "/home/holger/git/labHandle/app/base_model.py", line 183, in from_dict
+    and query.filter_by(id=item["id"])
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/orm/query.py", line 1690, in filter_by
+    return self.filter(sql.and_(*clauses))
+  File "<string>", line 2, in filter
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/orm/base.py", line 198, in generate
+    self = args[0]._clone()
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/orm/dynamic.py", line 289, in _clone
+    orm_util.instance_str(instance), self.attr.key))
+sqlalchemy.orm.exc.DetachedInstanceError: Parent instance <Department at 0x7f4921c6b4a8> is not bound to a Session, and no contextual session is established; lazy load operation of attribute 'users' cannot proceed (Background on this error at: http://sqlalche.me/e/bhk3)
+2019-02-27 22:49:01,465 INFO: Length dep. server startup [in /home/holger/git/labHandle/app/__init__.py:76]
+2019-02-27 22:49:06,947 INFO: Length dep. server startup [in /home/holger/git/labHandle/app/__init__.py:76]
+2019-02-27 22:49:13,939 INFO: Length dep. server startup [in /home/holger/git/labHandle/app/__init__.py:76]
+2019-02-27 22:49:22,249 ERROR: Exception on /admin/department [POST] [in /home/holger/.local/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
     raise value
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/orm/session.py", line 2404, in _flush
-    flush_context.execute()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/orm/unitofwork.py", line 395, in execute
-    rec.execute(self)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/orm/unitofwork.py", line 560, in execute
-    uow
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/orm/persistence.py", line 181, in save_obj
-    mapper, table, insert)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/orm/persistence.py", line 872, in _emit_insert_statements
-    execute(statement, params)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 948, in execute
-    return meth(self, multiparams, params)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/sql/elements.py", line 269, in _execute_on_connection
-    return connection._execute_clauseelement(self, multiparams, params)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1060, in _execute_clauseelement
-    compiled_sql, distilled_params
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
-    context)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
-    exc_info
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 265, in raise_from_cause
-    reraise(type(exception), exception, tb=exc_tb, cause=cause)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 248, in reraise
-    raise value.with_traceback(tb)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
-    context)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 509, in do_execute
-    cursor.execute(statement, parameters)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/pymysql/cursors.py", line 170, in execute
-    result = self._query(query)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/pymysql/cursors.py", line 328, in _query
-    conn.query(q)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/pymysql/connections.py", line 517, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/pymysql/connections.py", line 732, in _read_query_result
-    result.read()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/pymysql/connections.py", line 1075, in read
-    first_packet = self.connection._read_packet()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/pymysql/connections.py", line 684, in _read_packet
-    packet.check_error()
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/pymysql/protocol.py", line 220, in check_error
-    err.raise_mysql_exception(self._data)
-  File "/home/holger/git/md_length/venv/lib/python3.5/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
-    raise errorclass(errno, errval)
-sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1062, "Duplicate entry '10129' for key 'ix_instrument_mois_id'") [SQL: 'INSERT INTO instrument (mois_id, description, data_fields_json, last_maintenance_date, last_maintenance_interval) VALUES (%(mois_id)s, %(description)s, %(data_fields_json)s, %(last_maintenance_date)s, %(last_maintenance_interval)s)'] [parameters: {'last_maintenance_date': None, 'description': 'ZMK & ANALYTIK GmbH;Tiheduse etalonvedelik;271', 'mois_id': 10129, 'last_maintenance_interval': None, 'data_fields_json': ['fyys_keem_suurused']}] (Background on this error at: http://sqlalche.me/e/gkpj)
-2019-01-27 00:49:49,539 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-27 00:55:07,249 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-27 00:58:30,487 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-27 01:00:36,761 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-27 01:04:40,558 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-27 01:05:32,837 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-27 01:07:21,021 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-27 01:09:14,580 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-27 01:10:59,087 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-27 01:15:26,964 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-27 01:23:44,145 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-27 01:26:26,403 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
-2019-01-27 01:27:54,853 INFO: Length dep. server startup [in /home/holger/git/md_length/app/__init__.py:73]
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/holger/git/labHandle/app/admin/routes.py", line 86, in add_department
+    dep.from_dict(**json_obj)
+  File "/home/holger/git/labHandle/app/base_model.py", line 183, in from_dict
+    and query.filter_by(id=item["id"])
+AttributeError: 'InstrumentedList' object has no attribute 'filter_by'
+2019-02-27 22:51:05,474 INFO: Length dep. server startup [in /home/holger/git/labHandle/app/__init__.py:76]
+2019-02-27 22:51:13,112 ERROR: Exception on /admin/department [POST] [in /home/holger/.local/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/holger/git/labHandle/app/admin/routes.py", line 86, in add_department
+    dep.from_dict(**json_obj)
+  File "/home/holger/git/labHandle/app/base_model.py", line 183, in from_dict
+    and query.filter_by(id=item["id"])
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/orm/query.py", line 1690, in filter_by
+    return self.filter(sql.and_(*clauses))
+  File "<string>", line 2, in filter
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/orm/base.py", line 198, in generate
+    self = args[0]._clone()
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/orm/dynamic.py", line 289, in _clone
+    orm_util.instance_str(instance), self.attr.key))
+sqlalchemy.orm.exc.DetachedInstanceError: Parent instance <Department at 0x7f5be6940eb8> is not bound to a Session, and no contextual session is established; lazy load operation of attribute 'users' cannot proceed (Background on this error at: http://sqlalche.me/e/bhk3)
+2019-02-27 23:00:58,627 INFO: Length dep. server startup [in /home/holger/git/labHandle/app/__init__.py:76]
+2019-02-27 23:01:07,418 ERROR: Exception on /admin/department [POST] [in /home/holger/.local/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/holger/git/labHandle/app/admin/routes.py", line 86, in add_department
+    dep.from_dict(**json_obj)
+  File "/home/holger/git/labHandle/app/base_model.py", line 210, in from_dict
+    for item in query.filter(not_(cls.id.in_(valid_ids))).all():
+NameError: name 'not_' is not defined
+2019-02-27 23:05:47,787 INFO: Length dep. server startup [in /home/holger/git/labHandle/app/__init__.py:76]
+2019-02-27 23:05:54,264 ERROR: Exception on /admin/department [POST] [in /home/holger/.local/lib/python3.5/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/holger/.local/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/holger/git/labHandle/app/admin/routes.py", line 86, in add_department
+    dep.from_dict(**json_obj)
+  File "/home/holger/git/labHandle/app/base_model.py", line 210, in from_dict
+    for item in query.filter(~(cls.id.in_(valid_ids))).all():
+  File "<string>", line 2, in filter
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/orm/base.py", line 198, in generate
+    self = args[0]._clone()
+  File "/home/holger/.local/lib/python3.5/site-packages/sqlalchemy/orm/dynamic.py", line 289, in _clone
+    orm_util.instance_str(instance), self.attr.key))
+sqlalchemy.orm.exc.DetachedInstanceError: Parent instance <Department at 0x7f4fa1b540b8> is not bound to a Session, and no contextual session is established; lazy load operation of attribute 'users' cannot proceed (Background on this error at: http://sqlalche.me/e/bhk3)
+2019-02-27 23:06:48,654 INFO: Length dep. server startup [in /home/holger/git/labHandle/app/__init__.py:76]
+2019-02-27 23:07:42,253 INFO: Length dep. server startup [in /home/holger/git/labHandle/app/__init__.py:76]
+2019-02-27 23:13:49,629 INFO: Length dep. server startup [in /home/holger/git/labHandle/app/__init__.py:76]

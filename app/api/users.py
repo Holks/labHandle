@@ -20,6 +20,7 @@ def get_users():
     return jsonify(data)
 
 @bp.route('/users', methods=['POST'])
+@token_auth.login_required
 def create_user():
     data = request.get_json() or {}
     print(data)
@@ -27,14 +28,14 @@ def create_user():
         return bad_request('must include username, email and password fields')
     if User.query.filter_by(username=data['username']).first():
         return bad_request('please use a different username')
-    if User.query.filter_by(email=data['email']).first():
-        return bad_request('please use a different email address')
     user = User()
-    user.from_dict(**data)
-    db.session.add(user)
-    db.session.commit()
-    response = jsonify(user.to_dict())
-    response.status_code = 201
+    user.add_user(data)
+    res = User.query.filter_by(username=data['username']).one_or_none()
+    if res:
+        response = jsonify(res.to_dict())
+        response.status_code = 201
+    else:
+        response.status_code = 403
     response.headers['Location'] = url_for('api.get_user', id=user.id)
     return response
 

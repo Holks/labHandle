@@ -1,4 +1,5 @@
 #!/bin/sh
+cd ~
 source venv/bin/activate
 
 #while true; do
